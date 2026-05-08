@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahin Nisho’s Excellent Shop BD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* ব্যাকগ্রাউন্ডে আপনার দেওয়া ইমেজ */
+            background-image: url('logu/login\ bg.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* মাঝখানের গ্লাস বক্স (Blur কমানো বাড়ানো যাবে এখানে) */
+        .login-box {
+            width: 400px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1); /* হালকা সাদা স্বচ্ছতা */
+            backdrop-filter: blur(25px); /* ব্লার বাড়িয়ে দেওয়া হয়েছে */
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* ইনপুট গ্রুপ স্টাইল */
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            background: transparent; /* ব্যাকগ্রাউন্ড ইমেজ দেখা যাবে */
+            border: 1px solid rgba(255, 255, 255, 0.5); /* বর্ডার থাকবে */
+            border-radius: 30px;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        /* ফ্লোটিং লেবেল - ২ নম্বর ইমেজের মতো বর্ডারের উপরে */
+        .input-group label {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            transition: 0.3s;
+            padding: 0 5px;
+        }
+
+        /* ক্লিক করলে লেবেল উপরে উঠবে */
+        .input-group input:focus ~ label,
+        .input-group input:not(:placeholder-shown) ~ label {
+            top: 0;
+            font-size: 12px;
+            background: rgba(82, 31, 133, 0.5); /* হালকা ব্যাকগ্রাউন্ড যাতে বর্ডারের উপরে লেখা বোঝা যায় */
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+
+        /* রিমেম্বার মি ও ফরগট পাসওয়ার্ড */
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .remember-forgot input {
+            margin-right: 6px;
+        }
+
+        .remember-forgot a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        /* লগইন বাটন - সলিড সাদা */
+        .login-btn {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* নিচে রেজিস্টার টেক্সট */
+        .register-link {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .register-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="#">
+            <!-- ইউজারনেম/ইমেইল সেকশন -->
+            <div class="input-group">
+                <input type="text" id="username" placeholder=" " required>
+                <label>Please Enter Your Phone or Email </label>
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <!-- পাসওয়ার্ড সেকশন -->
+            <div class="input-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label>Please Enter Your Phone or  Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

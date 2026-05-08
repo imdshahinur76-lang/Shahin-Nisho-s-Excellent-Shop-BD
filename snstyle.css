@@ -1,0 +1,667 @@
+
+/* --- ১. গ্লোবাল সেটিংস --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+header {
+    background-color: #f85606;
+    height:140px;     
+    width: 100%;
+    /* এটি নিশ্চিত করবে পেজ ছোট করলেও হেডার ১২০০ পিক্সেলের নিচে নামবে না */
+    min-width: 1200px; 
+    padding-right: 260px; 
+}
+
+/* কন্টেন্টকে মাঝখানে এবং একটি নির্দিষ্ট মাপে রাখার জন্য */
+.content-wrapper {
+    width: 1180px; /* ডারাজের মতো নির্দিষ্ট উইডথ */
+    margin: 0 auto;
+    display: flex;
+}
+
+/* --- ২. টপ নেভিগেশন --- */
+.top-navigation {
+    width: 100%;
+    padding: 7px 0;
+}
+
+.top-navigation ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    white-space: nowrap;
+    list-style: none;         /* এটি ডট বা বুলেট পয়েন্ট মুছে ফেলবে */
+    justify-content: flex-start;
+    padding-left: 605px;
+}
+
+.top-navigation li {
+    margin-left: 60px;
+    
+
+}
+
+.top-navigation a {
+    color: white;
+    font-size: 17px;
+}
+
+/* --- ৩. মেইন হেডার (লোগো, সার্চ, কার্ট) --- */
+.logu-search-cart {
+    width: 100%;
+    padding: 15px 0; /* প্যাডিং কমিয়ে আনা হয়েছে */
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 45px;
+    width: auto;
+    flex-shrink: 0; /* লোগো যেন ছোট না হয় */
+    margin-right: 40px;
+}
+
+/* সার্চ বার স্টাইল */
+.search-box {
+    display: flex;
+    flex-grow: 1; /* খালি জায়গায় এটি বড় হবে */
+    height: 60px;
+    
+}
+
+#search {
+    width: 100%;
+    padding: 0 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 17px;
+}
+
+.search-box button {
+    background-color: #ffe1d2;
+    border: none;
+    width: 70px;
+    color: #f85606;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.cart {
+    margin-left: 40px;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    flex-shrink: 0; /* কার্ট যেন ছোট না হয় */
+}
+
+
+
+/*  slide section */
+
+
+/* ৫ নম্বর ম্যাপ: ফুল স্ক্রিন কন্টেইনার (১৮৯০ x ৩৪৪) */
+
+/* রিসেট এবং বেসিক স্টাইল */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.full-banner-section {
+    width: 100%;
+    max-width: 1650px;    /* সর্বোচ্চ কত বড় হবে সেটা ঠিক করে দিন */
+    max-height: 500px;        /* উচ্চতা আপনার প্রয়োজন মতো বাড়িয়ে নিন (যেমন ৪০০px) */
+    display: flex;
+    margin: 0 auto;       /* মাঝখানে রাখার জন্য */
+
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 0px0;
+}
+
+.main-wrapper {
+    display: flex;
+    gap: 0px; /* স্লাইডার এবং বক্সের মাঝখানের গ্যাপ */
+    align-items: flex-start;
+}
+
+/* স্লাইডার স্টাইল */
+.slider-container {
+    width: 100%;
+    height: 344px;
+    flex: 1; 
+    height: 100%; 
+    
+    border-radius: 8px;
+    
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item { width: 25%; }
+.item img { width: 100%; height: 100%; object-fit: cover; }
+
+input[type="radio"] { display: none; }
+
+#slide1:checked ~ .slides { transform: translateX(0%); }
+#slide2:checked ~ .slides { transform: translateX(-25%); }
+#slide3:checked ~ .slides { transform: translateX(-50%); }
+#slide4:checked ~ .slides { transform: translateX(-75%); }
+
+/* অ্যারো বাটন */
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 15px;
+    z-index: 5;
+}
+
+#slide1:checked ~ .arrow-1, #slide2:checked ~ .arrow-2, 
+#slide3:checked ~ .arrow-3, #slide4:checked ~ .arrow-4 { display: flex; }
+
+.prev, .next {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot-btn {
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#slide1:checked ~ .dots-container label:nth-child(1),
+#slide2:checked ~ .dots-container label:nth-child(2),
+#slide3:checked ~ .dots-container label:nth-child(3),
+#slide4:checked ~ .dots-container label:nth-child(4) {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* সাইড বক্স স্টাইল */
+.side-box-container {
+    width: 220px;
+    height: 344px;
+    background: linear-gradient(135deg, #ffffff, #fff5ee);
+    padding: 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.main-logo { width: 35px; }
+.top-title { font-size: 17px; color: #a14a00; font-weight: 700; }
+
+.promo-box-wrapper { position: relative; margin-top: 20px; }
+
+.rating-tab {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background: #ff8101;
+    color: white;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px 15px 0 0;
+    z-index: 2;
+}
+
+.main-promo-box {
+    background: linear-gradient(to bottom, #ff8101, #ff3c8f);
+    border-radius: 0 10px 10px 10px;
+    padding: 12px;
+    border-top: 10px solid #ffcb9d; /* ইমেজের মতো ট্যাব ইফেক্ট */
+    margin-top: -10px;
+}
+
+.download-text {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.icon-container {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.icon-container img { width: 40px; }
+.teal-bg { background-color: #e0f8f8; }
+.pink-bg { background-color: #ffeff4; }
+
+.feature-text { color: white; line-height: 1.1; font-size: 17px; }
+.feature-text span { font-size: 17px; font-weight: 800; }
+
+/* কিউআর সেকশন */
+.qr-download-section { margin-top: auto; text-align: center; }
+.qr-flex { display: flex; align-items: center; justify-content: center; gap: 2px; }
+
+.qr-border {
+    border: 1px solid #eee;
+    padding: 3px;
+    background: white;
+    border-radius: 4px;
+}
+
+.qr-code-img { width: 100px; height: 100pxpx; display: block; }
+.store-buttons img { width: 100px; display: block; margin-bottom: 4px; }
+
+.footer-msg {
+    font-size: 15px;
+    color: #00478a;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+/* slide img and  saide img sekson end  */
+
+
+
+/* --- ৪. প্রোডাক্ট সেকশন (Flash Sale) --- */
+
+.products {
+    font-size: 20px;
+    text-align: center;
+   
+    flex-wrap:wrap ;
+}
+
+
+
+.products-container {
+    width: 1650px;
+    margin: auto;
+}
+
+.products-container h4 {
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.product-top p {
+    color: #f57224; 
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.product-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    height: 80px;
+    padding: 15px 20px;
+    
+}
+
+.product-top a {
+    color:#f57224; 
+    font-size: 17px;
+    font-weight: bold;
+    
+ 
+}
+
+/* product list start */
+
+.products {
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    
+}
+
+.product-card img {
+width: 188px;
+height: 188px;
+
+}
+
+.product-info {
+padding: 5px;
+
+}
+
+.product-info p {
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+
+}
+
+
+.sel-price {
+font-size: 1.3rem;
+
+
+}
+
+
+.product-card {
+    background: white;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.sel-price {
+    color: #f57224;
+    text-align: center;
+    font: size 1.3rem;
+    font-weight: bold;
+
+}
+
+
+.orginall-price { text-decoration: line-through; 
+    color: #999; 
+    font-size: 12px;
+
+}
+
+/* --- ৫. ক্যাটাগরি সেকশন --- */
+
+.catagoris {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background: white;
+    padding: 2px;
+    margin: auto;
+}
+
+/* img upore tas korle img boro hobe */
+.callection:hover{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.callection {
+    text-align: center;
+    border: 1px solid #f1f1f1;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+
+
+.callection img { width: 80px; height: 80px; object-fit: cover; }
+.callection p { font-size: 20px; margin-top: 5px; }
+
+
+
+/* just for tou --- product- list - start */
+
+.featured-collection  {
+margin: 30px 0px;
+
+}
+
+/* img upore tas korle img boro hobe */
+.product:hover{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.featured-collection {
+width: 1650px;
+margin: auto;
+
+}
+
+.featured-collections {
+display: flex;
+justify-content: flex-start;
+
+}
+
+.feature-products{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 10px;
+
+}
+
+.product {
+    background-color: #fff;
+    width: 265px;
+    height: 291px;
+}
+
+.product:hover {
+    box-shadow: 0px 4px 8px rgb(0, 0,0, 0.1);
+}
+
+.product img {
+width: 189px;
+height: 189px;
+
+
+}
+
+.products-info {
+    padding: 5px;
+}
+
+.products-info p { 
+    overflow: hidden;
+    display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+
+} 
+
+.products-info p>span {
+    font-size: 1.2rem;
+color: #f57224 ;
+
+}
+
+.reting {
+color: #faca51;
+font-size: 0.7rem;
+
+}
+
+#load-more {
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    margin: 30px auto;
+    padding: 10px 100px;
+    border: 1px solid #f85606;
+    background: white;
+    color: #f85606;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 375px;
+    height: 48px;
+    font-size: 20px;
+}
+
+
+
+/* --- ৬. ফুটার সেকশন --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+footer {
+    background-color: #f4f4f6; /* হালকা ব্যাকগ্রাউন্ড */
+    padding: 40px 0;
+    color: #0f136d;
+}
+
+.container {
+    max-width: 1200px; /* ওয়েবসাইট অনুযায়ী চওড়া */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top Section Styles */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #0f136d;
+    font-size: 13px;
+}
+
+.footer-col ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Download App Area */
+.download-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.happy-shopping {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.happy-shopping .main-logo {
+    width: 45px;
+}
+
+.happy-shopping .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.orange-text {
+    color: #f85606;
+    font-size: 16px;
+}
+
+.blue-text {
+    color: #0f136d;
+    font-size: 14px;
+}
+
+.apps-icon-container {
+    display: flex;
+    flex-direction: column; /* সারিগুলোকে নিচে নিচে রাখার জন্য */
+    gap: 10px;              /* ওপর-নিচের গ্যাপ */
+}
+
+.row-one {
+    display: flex;
+    gap: 10px;              /* পাশাপাশি ইমেজের মাঝখানের গ্যাপ */
+}
+
+.apps-icon-container img {
+    width: 135px;           /* ইমেজের সাইজ ঠিক করার জন্য */
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* নিচের ইমেজটি যাতে উপরেরটির সাথে এলাইন থাকে */
+.row-two {
+    display: flex;
+    justify-content: flex-start;
+}
